@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: ocorea
+        psr4_prefix: ocorea
+        src_path: app
