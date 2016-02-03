@@ -13,12 +13,13 @@ return [
     |
     */
 
-    'forgot_link' => 'Forgot your password?',
-    'remember' => 'Remember me',
-    'login_title' => 'Login',
-    'login_button' => 'Login',
-    'register_title' => 'Register',
-    'register_button' => 'Register',
+    'errors_title' => 'Por favor corrige los siguientes errores',
+    'forgot_link' => 'Olvidaste tu contrasena?',
+    'remember' => 'Recuerdame',
+    'login_title' => 'Inicio de sesion',
+    'login_button' => 'Inicia de sesion',
+    'register_title' => 'Registro',
+    'register_button' => 'Registrate!',
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 

@@ -19,8 +19,8 @@ class UsersTableSeeder extends Seeder
             $id = \DB::table('users')->insertGetId(array(
                 'var_username' => $faker->firstName,
                 'var_userlastname' => $faker->lastName,
-                'var_email' => $faker->unique()->email,
-                'var_password' => \Hash::make('123456'),
+                'email' => $faker->unique()->email,
+                'password' => \Hash::make('123456'),
                 'type' => 'Usuario'
             ));
 

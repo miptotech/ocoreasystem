@@ -33,9 +33,10 @@ class CreateStTable extends Migration
             $table->string('var_status');
             $table->string('var_code');
             $table->string('var_flaw');
-            $table->integer('int_advance');
-            $table->integer('int_replace');
-            $table->integer('int_handwork');
+            $table->string('var_inform');
+            $table->float('int_advance');
+            $table->float('int_replace');
+            $table->float('int_handwork');
             $table->integer('int_userid')->unsigned();
             $table->foreign('int_userid')->references('id')
                 ->on('users')
