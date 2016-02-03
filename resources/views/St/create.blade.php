@@ -34,6 +34,11 @@
 
     $(document).ready(function (){
 
+        $("#var_mobile").prop('disabled', true);
+        $("#var_telephone").prop('disabled', true);
+        $("#var_email").prop('disabled', true);
+        $("#var_address").prop('disabled', true);
+        $("#var_located").prop('disabled', true);
 
         $("#cliente").change(function(){
 
@@ -46,14 +51,10 @@
 
             $.post(url,data,function(result){
 
-                $("#var_mobile").html(result['mobile']);
-                $("#var_mobile").show();
-                $("#var_telephone").html(result['telephone']);
-                $("#var_telephone").show();
-                $("#var_email").html(result['mail']);
-                $("#var_email").show();
-                $("#var_address").html(result['address']);
-                $("#var_address").show();
+                $('input[name="var_mobile"]').val(result['mobile']);
+                $('input[name="var_telephone"]').val(result['telephone']);
+                $('input[name="var_email"]').val(result['mail']);
+                $('input[name="var_address"]').val(result['address']);
 
 
                 $("#cliente").prop('disabled', false);

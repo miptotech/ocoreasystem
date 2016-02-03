@@ -9,7 +9,7 @@
 </div>
 <div class="form-group">
     <label>Movil</label>
-    <input  id="var_mobile" name="var_mobile" type="text" value="{{ old('var_mobile') }}" class="form-control" >
+    <input  id="var_mobile" name="var_mobile" type="text" value="{{ old('var_mobile') }}" class="form-control"  >
 </div>
 <div class="form-group">
     <label>Telefono</label>
