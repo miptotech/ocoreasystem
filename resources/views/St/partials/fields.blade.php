@@ -1,6 +1,6 @@
 <div class="form-group">
     <label>Nombre Cliente</label>
-    <select id="cliente" name="var_name" value="{{ old('var_name') }}" class="form-control" placeholder="Por favor introduzca el Nombre del Cliente">
+    <select id="cliente" name="int_clientid" value="{{ old('int_clientid') }}" class="form-control" placeholder="Por favor introduzca el Nombre del Cliente">
         <option value="0"> Seleccione el Cliente ... </option>
         @foreach ($client as $client)
                 <option value="{{ $client->id}}"> {{ $client->var_name}}</option>
@@ -17,7 +17,7 @@
 </div>
 <div class="form-group">
     <label>Correo</label>
-    <input id="var_email" name="var_email" type="email" value="{{ old('var_email') }}" class="form-control" placeholder="Example@mail.com">
+    <input id="var_email" name="var_email" type="email" value="{{ old('var_email') }}" class="form-control">
 </div>
 <div class="form-group">
     <label>Direccion</label>
@@ -48,12 +48,17 @@
 <input name="var_accessory" type="text" value="{{ old('var_accessory') }}" class="form-control">
 </div>
 <div class="form-group">
-<label>Usuario</label>
-<input name="var_user" type="text" value="{{ old('var_user') }}" class="form-control">
-</div>
-<div class="form-group">
 <label>Claves</label>
 <input name="var_key" type="text" value="{{ old('var_key') }}" class="form-control">
+</div>
+<div class="form-group">
+    <label>Recibido por</label>
+    <select id="recibido" name="int_userrid" value="{{ old('int_userrid') }}"  class="form-control" placeholder="Por favor introduzca el Usuario">
+        <option value="0"> Seleccione el Usuario ... </option>
+        @foreach ($reviceuser as $reviceuser)
+            <option value="{{ $reviceuser->id}}"> {{ $reviceuser->var_username}}</option>
+        @endforeach
+    </select>
 </div>
 <div class="form-group">
 <label>Ubicacion Taller</label>
@@ -64,8 +69,26 @@
 <input name="date_start" type="date" value="{{ old('date_start') }}" class="form-control datepicker">
 </div>
 <div class="form-group">
+    <label>Tecnico Asignado</label>
+    <select id="tecnico" name="int_useraid" value="{{ old('int_useraid') }}" class="form-control" placeholder="Por favor introduzca el Tecnico">
+        <option value="0"> Seleccione el Tecnico ... </option>
+        @foreach ($tecniuser as $tecniuser)
+            <option value="{{ $tecniuser->id}}"> {{ $tecniuser->var_username}}</option>
+        @endforeach
+    </select>
+</div>
+<div class="form-group">
 <label>falla reportada</label>
 <input name="var_flaw" type="text" value="{{ old('var_flaw') }}" class="form-control">
+</div>
+<div class="form-group">
+    <label>Categoria</label>
+    <select id="tecnico" name="int_flawcategoryid" value="{{ old('int_flawcategoryid') }}" class="form-control" placeholder="Por favor introduzca el Tecnico">
+        <option value="0"> Seleccione el Tecnico ... </option>
+        @foreach ($flaw as $flaw)
+            <option value="{{ $flaw->id}}"> {{ $flaw->var_category}}</option>
+        @endforeach
+    </select>
 </div>
 <div class="form-group">
     <label>Informe Final</label>

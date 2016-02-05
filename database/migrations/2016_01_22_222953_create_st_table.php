@@ -37,8 +37,12 @@ class CreateStTable extends Migration
             $table->float('int_advance');
             $table->float('int_replace');
             $table->float('int_handwork');
-            $table->integer('int_userid')->unsigned();
-            $table->foreign('int_userid')->references('id')
+            $table->integer('int_userrid')->unsigned();
+            $table->foreign('int_userrid')->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+            $table->integer('int_useraid')->unsigned();
+            $table->foreign('int_useraid')->references('id')
                 ->on('users')
                 ->onDelete('cascade');
             $table->integer('int_flawcategoryid')->unsigned();

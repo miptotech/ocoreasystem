@@ -11,6 +11,7 @@ use ocorea\Client;
 use ocorea\User;
 use ocorea\Flawcategory;
 use Illuminate\Support\Facades\Session;
+use ocorea\Http\Requests\CreateStRequest;
 
 
 class StController extends Controller
@@ -91,7 +92,7 @@ class StController extends Controller
         $flaw=Flawcategory::select('var_category')
             ->get();
 
-        return view('st.create', compact(['client','$tecniuser','tecniuser','flaw']));
+        return view('st.create', compact(['client','reviceuser','tecniuser','flaw']));
     }
 
     /**
@@ -100,8 +101,9 @@ class StController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateClientRequest $request)
+    public function store(CreateStRequest $request)
     {
+        dd($request->all());
         $client = new St($request->all());
         $client->save();
         return \Redirect::route('st.index');

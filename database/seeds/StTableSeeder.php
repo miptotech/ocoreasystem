@@ -15,9 +15,13 @@ class StTableSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        $userid    = DB::table('users')
+        $userid = DB::table('users')
             ->select('id')
             ->get();
+
+        $useridc = DB::table('users')
+            ->select('id')
+            ->count();
 
         $idflaw = DB::table('flawcategories')
             ->select('id')
@@ -54,7 +58,8 @@ class StTableSeeder extends Seeder
                 'int_handwork' => $faker->numberBetween($min = 1000, $max = 9000),
                 'int_flawcategoryid' => rand(1,$idflaw),
                 'int_clientid' => rand(1,$idclient),
-                'int_userid' => $t->id
+                'int_userrid' => $t->id,
+                'int_useraid' => rand(1,$useridc),
             ));
 
                 for($i=0; $i<2; $i++) {
