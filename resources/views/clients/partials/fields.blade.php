@@ -1,6 +1,6 @@
 <div class="form-group">
     <label>Nombre Cliente</label>
-    <input name ="var_name" type="text" value="{{ old($client->var_name) }}" class="form-control" placeholder="Por favor introduzca el Nombre del Cliente">
+    <input name ="var_name" type="text" value="{{ old('var_name') }}" class="form-control" placeholder="Por favor introduzca el Nombre del Cliente">
 </div>
 <div class="form-group">
     <label>Correo Electrónico</label>
