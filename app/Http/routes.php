@@ -16,6 +16,39 @@ Route::get('/', [
     'as'   => 'home'
 ]);
 
+// Authentication notes...
+
+Route::get('notes', [
+    'uses' => 'note\NoteController@index',
+    'as'   => 'note.index'
+]);
+
+Route::get('notes/create', [
+    'uses' => 'note\NoteController@create',
+    'as'   => 'note.create'
+]);
+
+Route::post('notes/create', [
+    'uses' => 'note\NoteController@store',
+    'as'   => 'note.store'
+]);
+
+
+Route::get('notes/{id}', [
+    'uses' => 'note\NoteController@edit',
+    'as'   => 'note.edit'
+]);
+
+Route::get('notes/update/{id}', [
+    'uses' => 'note\NoteController@update',
+    'as'   => 'note.update'
+]);
+
+Route::delete('notes/destroy/{id}', [
+    'uses' => 'note\NoteController@destroy',
+    'as'   => 'note.destroy'
+]);
+
 // Authentication Servicio Tecnico...
 
 Route::get('st', [
