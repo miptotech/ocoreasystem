@@ -1,24 +1,12 @@
-<table class="table table-striped">
-
-    <tr>
-        <th>#</th>
-        <th>Titulo</th>
-        <th>Descripcion</th>
-        <th>Estado</th>
-        <th>Fecha</th>
-        <th></th>
-    </tr>
-    @foreach ($note as $note)
-        <tr data-id="{{$note->id}}">
-            <td>{{ $note->id }}</td>
-            <td>{{ $note->var_title }}</td>
-            <td>{{ $note->var_description }}</td>
-            <td>{{ $note->var_status }}</td>
-            <td>{{ $note->date_note }}</td>
-            <td>
-                <a href="{{ route('note.edit', $note->id)}}">Editar</a>
-                <a href="#!" class="btn-delete">Eliminar</a>
-            </td>
-        </tr>
+<div class="panel-body">
+	<div class="row"> 
+	@foreach ($note as $note)
+	<div class="col-md-3 note" style="margin-top:8px;" data-id="{{$note->id}}">
+		<h4 style="margin-top:50px; text-align: center;">#{{ $note->id }} - {{ $note->var_title }}</h4>
+		<p style="text-align: center;">{{ $note->date_note }}</p>
+		<p  style="height: 180px;">{{ $note->var_description }}</p>
+		<p align="right">  <a href="#!" class="btn-delete"><img src="{{ asset('imgs/trash.png') }}" width="35px" alt="eliminar" style="float:left;"></a><a href="{{ route('note.edit', $note->id)}}"> <img style="margin-left: 125px;" src="{{ asset('imgs/edit.png') }}" width="35px" alt="editar"></a></p>
+		</div>
     @endforeach
-</table>
+	</div>
+</div>
