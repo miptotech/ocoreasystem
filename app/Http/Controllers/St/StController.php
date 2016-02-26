@@ -81,9 +81,10 @@ class StController extends Controller
      */
     public function destroy($id, Request $request)
     {
-        $client = St::findOrFail($id);
-        $client->delete();
-        $message = $client->var_name . ' fue eliminado de nuestro registro';
+        $note = St::findOrFail($id);
+        $note->delete();
+
+        $message = 'La nota N.# '.$note->id . ' fue eliminado de nuestro registro';
         //Session::flash('message',$message);
 
         if(\Request::ajax()){
