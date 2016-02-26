@@ -25,5 +25,5 @@ class Note extends Model
      *
      * @var array
      */
-
+    protected $fillable = ['var_title','var_description','var_status','int_userid'];
 }

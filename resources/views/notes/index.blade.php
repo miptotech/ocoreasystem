@@ -27,7 +27,7 @@
     </div>
 
 
-    <form id="form-delete" role="form" action="{{ route('note.destroy',':USER_ID') }}">
+    <form id="form-delete" role="form" action="{{ route('note.destroy',':NOTE_ID') }}">
         <input name="_method" type="hidden" value="DELETE">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
     </form>
@@ -44,7 +44,7 @@
                 var row = $(this).parents('tr');
                 var id = row.data('id');
                 var form = $('#form-delete');
-                var url = form.attr('action').replace(':USER_ID',id);
+                var url = form.attr('action').replace(':NOTE_ID',id);
                 var data = form.serialize();
 
                 row.fadeOut();

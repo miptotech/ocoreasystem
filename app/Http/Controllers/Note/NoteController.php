@@ -3,7 +3,9 @@
 namespace ocorea\Http\Controllers\Note;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use ocorea\Http\Requests\CreateNoteRequest;
+use ocorea\Http\Requests\EditNoteRequest;
 use ocorea\Note;
 use ocorea\Http\Requests;
 use ocorea\Http\Controllers\Controller;
@@ -19,7 +21,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-        $note = Note::paginate();
+        $note = Note::paginate(12);
 
         return view('notes.index', compact('note'));
     }
@@ -42,9 +44,8 @@ class NoteController extends Controller
      */
     public function store(CreateNoteRequest $request)
     {
-
         $note = new Note($request->all());
-        $note->attributes['int_userid']=Auth::user()->id;
+        $note->int_userid=Auth::user()->id;
         $note->save();
         return \Redirect::route('note.index');
     }
@@ -68,7 +69,8 @@ class NoteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $note = Note::findOrFail($id);
+        return view('notes.edit', compact('note'));
     }
 
     /**
@@ -78,9 +80,14 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditNoteRequest $request, $id)
     {
-        //
+        $note = Note::findOrFail($id);
+        $note->fill($request->all());
+        $note->int_userid=Auth::user()->id;
+        $note->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -91,6 +98,13 @@ class NoteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $note = Note::findOrFail($id);
+        $note->delete();
+        $message = 'La nota N.# '.$note->id . ' fue eliminado de nuestro registro';
+        //Session::flash('message',$message);
+
+        if(\Request::ajax()){
+            return $message;
+        }
     }
 }
