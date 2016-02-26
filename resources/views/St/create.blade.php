@@ -34,11 +34,11 @@
 
     $(document).ready(function (){
 
-        $("#var_mobile").prop('disabled', true);
-        $("#var_telephone").prop('disabled', true);
-        $("#var_email").prop('disabled', true);
-        $("#var_address").prop('disabled', true);
-        $("#var_located").prop('disabled', true);
+        $("#var_mobile").prop('readonly', true);
+        $("#var_telephone").prop('readonly', true);
+        $("#var_email").prop('readonly', true);
+        $("#var_address").prop('readonly', true);
+        $("#var_located").prop('readonly', true);
 
         $("#cliente").change(function(){
 

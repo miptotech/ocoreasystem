@@ -12,6 +12,7 @@ use ocorea\User;
 use ocorea\Flawcategory;
 use Illuminate\Support\Facades\Session;
 use ocorea\Http\Requests\CreateStRequest;
+use ocorea\Http\Requests\EditStRequest;
 
 
 class StController extends Controller
@@ -23,7 +24,7 @@ class StController extends Controller
      */
     public function index()
     {
-        $st= St::select('st.var_invoiceci', 'st.date_start', 'clients.var_name as var_name','st.var_typequipment' ,'st.var_brand','st.var_mobile','flawcategories.var_category','st.var_status')
+        $st= St::select('st.id','st.var_invoiceci', 'st.date_start', 'clients.var_name as var_name','st.var_typequipment' ,'st.var_brand','st.var_mobile','flawcategories.var_category','st.var_status')
             ->join('clients','st.int_clientid','=','clients.id')
             ->join('flawcategories','st.int_flawcategoryid','=','flawcategories.id')
             ->paginate();
@@ -42,8 +43,18 @@ class StController extends Controller
      */
     public function edit($id)
     {
-        $client = St::findOrFail($id);
-        return view('clients.edit', compact('client'));
+        $client=Client::select('id','var_name')
+            ->get();
+        $reviceuser=User::select('id','var_username','var_userlastname')
+            ->get();
+        $tecniuser=User::select('id','var_username','var_userlastname')
+            ->where('type','Tecnico')
+            ->get();
+        $flaw=Flawcategory::select('id','var_category')
+            ->get();
+
+        $st = St::findOrFail($id);
+        return view('St.edit', compact(['st','client','reviceuser','tecniuser','flaw']));
     }
 
     /**
@@ -53,11 +64,11 @@ class StController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EditClientRequest $request, $id)
+    public function update(EditStRequest $request, $id)
     {
-        $client = St::findOrFail($id);
-        $client->fill($request->all());
-        $client->save();
+        $st = St::findOrFail($id);
+        $st->fill($request->all());
+        $st->save();
 
         return redirect()->back();
     }
@@ -84,12 +95,12 @@ class StController extends Controller
     {
         $client=Client::select('id','var_name')
             ->get();
-        $reviceuser=User::select('var_username','var_userlastname')
+        $reviceuser=User::select('id','var_username','var_userlastname')
             ->get();
-        $tecniuser=User::select('var_username','var_userlastname')
+        $tecniuser=User::select('id','var_username','var_userlastname')
             ->where('type','Tecnico')
             ->get();
-        $flaw=Flawcategory::select('var_category')
+        $flaw=Flawcategory::select('id','var_category')
             ->get();
 
         return view('st.create', compact(['client','reviceuser','tecniuser','flaw']));
@@ -103,9 +114,8 @@ class StController extends Controller
      */
     public function store(CreateStRequest $request)
     {
-        dd($request->all());
-        $client = new St($request->all());
-        $client->save();
+        $st = new St($request->all());
+        $st->save();
         return \Redirect::route('st.index');
     }
 }

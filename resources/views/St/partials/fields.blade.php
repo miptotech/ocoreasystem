@@ -1,4 +1,4 @@
-<div class="form-group">
+<div>
     <label>Nombre Cliente</label>
     <select id="cliente" name="int_clientid" value="{{ old('int_clientid') }}" class="form-control" placeholder="Por favor introduzca el Nombre del Cliente">
         <option value="0"> Seleccione el Cliente ... </option>
@@ -9,14 +9,14 @@
 </div>
 <div class="form-group">
     <label>Movil</label>
-    <input  id="var_mobile" name="var_mobile" type="text" value="{{ old('var_mobile') }}" class="form-control"  >
+    <input id="var_mobile" name="var_mobile" type="text" value="{{ old('var_mobile') }}" class="form-control">
 </div>
 <div class="form-group">
     <label>Telefono</label>
     <input id="var_telephone" name="var_telephone" type="text" value="{{ old('var_telephone') }}" class="form-control">
 </div>
 <div class="form-group">
-    <label>Correo</label>
+    <label>Correo Electrónico</label>
     <input id="var_email" name="var_email" type="email" value="{{ old('var_email') }}" class="form-control">
 </div>
 <div class="form-group">
@@ -24,32 +24,32 @@
     <input id="var_address" name="var_address" type="text" value="{{ old('var_address') }}" class="form-control">
 </div>
 <div class="form-group">
-    <label>Localidad</label>
-    <input id="var_located" name="var_located" type="text" value="{{ old('var_located') }}" class="form-control">
+    <label>Tipo Equipo</label>
+    <input id="var_typequipment" name="var_typequipment" type="text" value="{{ old('var_typequipment') }}" class="form-control">
 </div>
 <div class="form-group">
-<label>Tipo de Equipo</label>
-<input name="var_typequipment" type="text" value="{{ old('var_typequipment') }}" class="form-control">
+    <label>Modelo</label>
+    <input id="var_model" name="var_model" type="text" value="{{ old('var_model') }}" class="form-control">
 </div>
 <div class="form-group">
-<label>Modelo</label>
-<input name="var_model" type="text" value="{{ old('var_model') }}" class="form-control">
+    <label>Marca</label>
+    <input id="var_brand" name="var_brand" type="text" value="{{ old('var_brand') }}" class="form-control">
 </div>
 <div class="form-group">
-<label>Marca</label>
-<input name="var_brand" type="text" value="{{ old('var_brand') }}" class="form-control">
+    <label>Serie</label>
+    <input id="var_serial" name="var_serial" type="text" value="{{ old('var_serial') }}" class="form-control">
 </div>
 <div class="form-group">
-<label>Serie</label>
-<input name="var_serial" type="text" value="{{ old('var_serial') }}" class="form-control">
+    <label>Accesorios</label>
+    <input id="var_accessory" name="var_accessory" type="text" value="{{ old('var_accessory') }}" class="form-control">
 </div>
 <div class="form-group">
-<label>Accesorios</label>
-<input name="var_accessory" type="text" value="{{ old('var_accessory') }}" class="form-control">
+    <label>Usuario</label>
+    <input id="var_user" name="var_user" type="text" value="{{ old('var_user') }}" class="form-control">
 </div>
 <div class="form-group">
-<label>Claves</label>
-<input name="var_key" type="text" value="{{ old('var_key') }}" class="form-control">
+    <label>Claves</label>
+    <input id="var_key" name="var_key" type="text" value="{{ old('var_key') }}" class="form-control">
 </div>
 <div class="form-group">
     <label>Recibido por</label>
@@ -61,12 +61,12 @@
     </select>
 </div>
 <div class="form-group">
-<label>Ubicacion Taller</label>
-<input name="var_workshopaddr" type="text" value="{{ old('var_workshopaddr') }}" class="form-control">
+    <label>Fecha Entrega</label>
+    <input id="date_start" name="date_start" type="date" value="{{ old('date_start') }}" class="form-control">
 </div>
 <div class="form-group">
-<label>Fecha entrada</label>
-<input name="date_start" type="date" value="{{ old('date_start') }}" class="form-control datepicker">
+    <label>Fecha Salida</label>
+    <input id="date_end" name="date_end" type="date" value="{{ old('date_end') }}" class="form-control">
 </div>
 <div class="form-group">
     <label>Tecnico Asignado</label>
@@ -78,8 +78,8 @@
     </select>
 </div>
 <div class="form-group">
-<label>falla reportada</label>
-<input name="var_flaw" type="text" value="{{ old('var_flaw') }}" class="form-control">
+    <label>Falla Reportada</label>
+    <input id="var_flaw" name="var_flaw" type="text" value="{{ old('var_flaw') }}" class="form-control">
 </div>
 <div class="form-group">
     <label>Categoria</label>
@@ -92,17 +92,31 @@
 </div>
 <div class="form-group">
     <label>Informe Final</label>
-    <input name="var_inform" type="text" value="{{ old('var_inform') }}" class="form-control">
+    <input id="var_inform" name="var_inform" type="text" value="{{ old('var_inform') }}" class="form-control">
 </div>
 <div class="form-group">
-    <label>Adelantado</label>
-    <input name="int_advance" type="text" value="{{ old('int_advance') }}" class="form-control">
+    <label>Adelanto</label>
+    <input id="int_advance" name="int_advance" type="number" value="{{ old('int_advance') }}" class="form-control">
 </div>
 <div class="form-group">
-    <label>Repuesto</label>
-    <input name="int_replace" type="text" value="{{ old('int_replace') }}" class="form-control">
+    <label>Presupuesto</label>
+    <input id="int_replace" name="int_replace" type="number" value="{{ old('int_replace') }}" class="form-control">
 </div>
 <div class="form-group">
     <label>Mano de Obra</label>
-    <input name="int_handwork" type="text" value="{{ old('int_handwork') }}" class="form-control">
+    <input id="int_handwork" name="int_handwork" type="number" value="{{ old('int_handwork') }}" class="form-control">
 </div>
+<div class="form-group">
+    <label>Total</label>
+    <input id="int_total" name="int_total" type="number" value="{{ old('int_total') }}" class="form-control">
+</div>
+<div class="form-group">
+    <label>Estado</label>
+    <select name="var_status" value="{{ old('var_status') }}" class="form-control">
+        <option value=""> Seleccione el Estado ... </option>
+            <option value="Abierto">Abierto</option>
+            <option value="Cerrado">Cerrado</option>
+            <option value="Esperando Repuesto">Esperando Repuesto</option>
+    </select>
+</div>
+

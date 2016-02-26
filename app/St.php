@@ -26,7 +26,8 @@ class St extends Model
      *
      * @var array
      */
-    protected $fillable = ['var_invoiceci', 'date_start', 'int_clientid','var_typequipment' ,'var_brand','var_mobile','int_flawcategoryid','var_status','var_name','clients.var_name'];
+    protected $fillable = ['int_flawcategoryid','int_clientid','int_userrid','int_useraid','created_at','updated_at','var_invoiceci', 'date_start', 'int_clientid','var_typequipment' ,'var_brand','var_mobile','int_flawcategoryid','var_status','var_name','clients.var_name'];
+
 
 
 }

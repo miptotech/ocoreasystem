@@ -29,7 +29,7 @@
                 @if (Auth::guest())
                     <li><a href="{{ route('home') }}">Home</a></li>
                 @else
-                    <li><a href="{{ route('logout') }}">Notas Diarias</a></li>
+                    <li><a href="{{ route('note.index') }}">Notas Diarias</a></li>
                     <li><a href="{{ route('st.index') }}">Servicio Tecnicos</a></li>
                     <li><a href="{{ route('logout') }}">ST Asignados</a></li>
                     <li><a href="{{ route('logout') }}">Contratos Mantenimiento</a></li>

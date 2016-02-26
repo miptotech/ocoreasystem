@@ -5,21 +5,21 @@
         <div class="row">
             <div  class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Servicios Tecnicos</div>
+                    <div class="panel-heading">Notas</div>
 
                     <p id="eliminado" style="display:none" class="alert alert-success"></p>
 
 
                     <div class="panel-body">
                         <p>
-                            <a class="btn btn-info" href="{{ route('st.store') }}" role="button">
-                                Crear Servicio Tecnico
+                            <a class="btn btn-info" href="{{ route('note.create') }}" role="button">
+                                Crear nota
                             </a>
                         </p>
-                        <p> hay {{ $st->lastPage() }} páginas </p>
-                        <p> {{ $st->total() }} Servicios Tecnicos </p>
-                        @include('st.partials.table')
-                        {!! $st->render() !!}
+                        <p> hay {{ $note->lastPage() }} páginas </p>
+                        <p> {{ $note->total() }} notas </p>
+                        @include('notes.partials.table')
+                        {!! $note->render() !!}
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
     </div>
 
 
-    <form id="form-delete" role="form" action="{{ route('st.destroy',':ST_ID') }}">
+    <form id="form-delete" role="form" action="{{ route('note.destroy',':USER_ID') }}">
         <input name="_method" type="hidden" value="DELETE">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
     </form>
@@ -44,7 +44,7 @@
                 var row = $(this).parents('tr');
                 var id = row.data('id');
                 var form = $('#form-delete');
-                var url = form.attr('action').replace(':ST_ID',id);
+                var url = form.attr('action').replace(':USER_ID',id);
                 var data = form.serialize();
 
                 row.fadeOut();
@@ -55,7 +55,7 @@
                     $("#eliminado").show();
 
                 }).fail(function (){
-                    alert('El servicio tecnico no fue eliminado');
+                    alert('El cliente no fue eliminado');
                     row.show();
                 });
             });

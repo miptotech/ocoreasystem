@@ -16,7 +16,7 @@ class CreateStTable extends Migration
             $table->increments('id');
             $table->string('var_mobile');
             $table->string('var_telephone');
-            $table->string('var_email')->unique();
+            $table->string('var_email');
             $table->string('var_address');
             $table->string('var_invoiceci');
             $table->string('var_located');

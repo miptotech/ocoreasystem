@@ -108,7 +108,12 @@ return array(
         'name' => 'Nombre completo',
         'email' => 'Correo electrónico',
         'password' => 'Contraseña',
-        'password_confirmation' => 'Confirma tu contraseña'
+        'password_confirmation' => 'Confirma tu contraseña',
+        'int_useraid'=>'Tecnico Asignado',
+        'int_userrid'=>'El Tecnico Recibido',
+        'int_clientid'=>'Nombre Cliente',
+        'int_flawcategoryid'=>'Categoria',
+
     ),
 
 );
