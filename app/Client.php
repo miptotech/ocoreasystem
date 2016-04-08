@@ -20,7 +20,7 @@ class Client extends Model
      *
      * @var string
      */
-    protected $table = 'Clients';
+    protected $table = 'clients';
 
     /**
      * The attributes that are mass assignable.
@@ -30,4 +30,9 @@ class Client extends Model
     protected $fillable = ['id','var_name', 'var_address', 'var_telephone','var_email' ,'var_mobile'];
 
 
+    public function scopeName($query, $name){
+        if(trim($name)!="") {
+            $query->where('var_name', "LIKE", "%$name%");
+        }
+    }
 }

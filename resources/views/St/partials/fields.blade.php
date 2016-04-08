@@ -1,4 +1,4 @@
-<div>
+<div class="form-group">
     <label>Nombre Cliente</label>
     <select id="cliente" name="int_clientid" value="{{ old('int_clientid') }}" class="form-control" placeholder="Por favor introduzca el Nombre del Cliente">
         <option value="0"> Seleccione el Cliente ... </option>
@@ -6,6 +6,10 @@
                 <option value="{{ $client->id}}"> {{ $client->var_name}}</option>
         @endforeach
     </select>
+    <br>
+    <a class="btn btn-info" href="{{ route('client.create') }}" role="button">
+        Crear cliente
+    </a>
 </div>
 <div class="form-group">
     <label>Movil</label>

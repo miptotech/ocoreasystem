@@ -19,7 +19,7 @@ class St extends Model
      *
      * @var string
      */
-    protected $table = 'St';
+    protected $table = 'st';
 
     /**
      * The attributes that are mass assignable.

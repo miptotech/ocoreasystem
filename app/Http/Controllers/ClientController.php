@@ -19,9 +19,10 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clients = Client::paginate();
+
+        $clients = Client::name($request->get('name'))->paginate();
 
         return view('clients.index', compact('clients'));
     }

@@ -27,6 +27,7 @@ class StController extends Controller
         $st= St::select('st.id','st.var_invoiceci', 'st.date_start', 'clients.var_name as var_name','st.var_typequipment' ,'st.var_brand','st.var_mobile','flawcategories.var_category','st.var_status')
             ->join('clients','st.int_clientid','=','clients.id')
             ->join('flawcategories','st.int_flawcategoryid','=','flawcategories.id')
+            ->orderBy('st.id','DESC')
             ->paginate();
        // select('st.var_invoiceci', 'st.date_start', 'clients.var_name','st.var_typequipment' ,'st.var_brand','st.var_mobile','flawcategories.var_category','st.var_status')
        // $st = St::paginate();
